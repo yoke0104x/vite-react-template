@@ -1,0 +1,31 @@
+HTML CSS JSResult Skip Results Iframe
+EDIT ON
+.menu-icon-wrapper {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.menu-icon-first, .menu-icon-second, .menu-icon-thrid {
+    background-color: #000;
+    width: 24px;
+    height: 2px;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* 旋转第一条横线 */
+.close .menu-icon-first {
+       transform: translate3d(0px, 8px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+}
+
+/* 隐藏第二条横线 */
+.close .menu-icon-second {
+    opacity: 0;
+}
+
+/* 旋转第三条横线 */
+.close .menu-icon-thrid {
+        transform: translate3d(0px, -8px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+}

@@ -1,0 +1,27 @@
+:root{
+    --black: black;
+    --white: #fff;
+    --form-background: #f7f9fa;
+    --new-blue: #3c91f3;
+    --form-borders: #a0a0a0;
+    --bluelight400: #36bffa;
+    --bluelight300: #7cd4fd;
+    --rent-adam-black: #1e1e1e;
+    --bluelight500: #0ba5ec;
+    --bluelight900: #0b4a6f;
+    --bluelight800: #065986;
+    --var: #fff002;
+    --light-grey: #f4f4f4;
+    --bluelight25: #f5fbff;
+    --bluelight700: #026aa2;
+    --bluelight600: #0086c9;
+    --bluelight50: #f0f9ff;
+    --bluelight200: #b9e6fe;
+    --bluelight100: #e0f2fe;
+    --rr-gray: #f2f4f7;
+    --off-black: #0d2b3a;
+    --dim-grey: #4a525c;
+    --blog-post-grey: #f4f4f4;
+    --cta_image-background_opacity-filter: #026aa2bf;
+    --buy-adam-grey: #f7f9fa;
+}

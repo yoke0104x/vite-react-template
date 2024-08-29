@@ -1,0 +1,40 @@
+
+export enum ResultCodeEnums {
+
+
+    SUCCESS = 0,
+
+
+    FAIL = -1,
+
+
+    CAPTCHA_INVALID = 1066,
+
+
+
+    USERNAME_OR_PASSWORD_ERROR = 1003,
+
+
+
+    CAPTCHA_ERROR = 1067,
+
+
+
+    TOKEN_ERROR = 1202,
+
+
+
+    TOKEN_INVALID = 1202,
+
+
+
+    NOT_LOGIN = 1200,
+
+
+
+    ACCESS_TOKEN_ALREADY_LOGGED_IN_ELSEWHERE = 1017,
+
+
+
+    ACCESS_TOKEN_VERSION_ERROR = 1201,
+}
