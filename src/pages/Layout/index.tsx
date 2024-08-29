@@ -15,7 +15,6 @@ import FormContainer from "@/components/FormContainer";
 import Icon from "@/components/Icon";
 
 const Layout = () => {
-    const { setUserInfo } = useUserStore();
     const [menuShow, setMenuShow] = useState(false);
     const [list, setList] = useState([
         {
@@ -49,22 +48,6 @@ const Layout = () => {
     ]);
     const currentOutlet = useOutlet();
 
-    useEffect(() => {
-        user.getUserInfo().then((res) => {
-            if (res?.code == enums.ResultCodeEnums.SUCCESS) {
-                setUserInfo(res.data);
-                if (res?.data?.superAdmin) {
-                    // key logout before insert one user List
-                    list.splice(list.length - 1, 0, {
-                        name: "UserList",
-                        path: "/userList",
-                    });
-                    setList([...list]);
-                }
-            }
-        });
-    }, []);
-
     const openMenu = () => {
         setMenuShow(!menuShow);
     };
@@ -93,14 +76,14 @@ const Layout = () => {
                                     to={item.path}
                                     className={({ isActive, isPending }) =>
                                         (isPending ? "pending " : isActive ? "" : "") +
-                                        "flex justify-center items-center"
+                                        "flex justify-center items-center font-medium"
                                     }
                                 >
                                     {item.name}
                                 </NavLink>
                                 {item?.icon}
                                 {item?.children ? (
-                                    <div className=" hidden hover:block group-hover:block absolute top-[72px] right-0 w-screen h-[calc(80vh_-_72px)] bg-white shadow-md overflow-y-auto">
+                                    <div className=" hidden hover:block group-hover:block z-50 absolute top-[72px] right-0 w-screen h-[calc(80vh_-_72px)] bg-white shadow-md overflow-y-auto">
                                         121212
                                     </div>
                                 ) : null}
@@ -122,7 +105,7 @@ const Layout = () => {
                                     to={item.path}
                                     className={({ isActive, isPending }) =>
                                         (isPending ? "pending " : isActive ? "" : "") +
-                                        "flex justify-center items-center px-5 py-3 hover:text-[var(--bluelight500)]"
+                                        "flex justify-center items-center px-5 font-medium py-3 hover:text-[var(--bluelight500)]"
                                     }
                                 >
                                     {item.name}
