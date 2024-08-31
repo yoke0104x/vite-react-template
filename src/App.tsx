@@ -1,3 +1,8 @@
+/*
+ * @description: 功能
+ * @author: Yoke
+ * @Date: 2024-08-14 23:01:14
+ */
 
 
 import { ConfigProvider, Empty } from 'antd';
@@ -8,6 +13,7 @@ import './App.css';
 import AppRoutes from './routers';
 import Loading from './components/Loading';
 import { HistoryRouter, history } from './utils/history';
+// import "@/utils/rem";
 
 function App() {
   return <HistoryRouter history={history}>

@@ -14,6 +14,7 @@ module.exports = {
       // => @media (min-width: 0px and max-width: 767px) { ... }
       'md': { 'min': '0px', 'max': '991px' },
       // => @media (min-width: 0px and max-width: 990px) { ... }
+      "mds": "991px"
     }
   }
 };

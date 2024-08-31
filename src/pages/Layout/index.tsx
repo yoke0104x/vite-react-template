@@ -4,53 +4,75 @@
  * @Date: 2024-08-14 23:39:04
  */
 
-import { user } from "@/api";
-import enums from "@/enums";
-import { useEffect, useState } from "react";
-import { NavLink, useOutlet } from "react-router-dom";
-import "./index.css";
-import { history } from "@/utils/history";
-import { useUserStore } from "@/store";
-import FormContainer from "@/components/FormContainer";
+import Footer from "@/components/Footer";
 import Icon from "@/components/Icon";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation, useOutlet } from "react-router-dom";
+import "./index.css";
+import Robots from "../Robots";
 
 const Layout = () => {
     const [menuShow, setMenuShow] = useState(false);
-    const [list, setList] = useState([
+    const location = useLocation();
+    const [robotShow, setRobotShow] = useState(false);
+    const list = [
         {
             name: "Home",
             path: "/home",
         },
         {
             name: "Robots",
-            path: "/responsible",
             icon: (
                 <Icon
                     size={24}
                     type={"NavigateNextFilled"}
-                    className=" transition-all duration-100 rotate-90 origin-center ml-2 group-hover:rotate-[270deg]"
+                    className={` transition-all duration-100 rotate-90 origin-center ml-2 ${robotShow ? 'rotate-[270deg]' : ''}`}
                 />
             ),
             children: true,
         },
         {
             name: "About",
-            path: "/participant",
+            path: "/about",
         },
         {
             name: "Blog",
-            path: "/events",
+            path: "/blog",
         },
         {
             name: "Investors",
             path: "/tasks",
         },
-    ]);
+    ]
     const currentOutlet = useOutlet();
+
 
     const openMenu = () => {
         setMenuShow(!menuShow);
     };
+
+    useEffect(() => {
+        setMenuShow(false);
+        console.log(location)
+    }, [location.pathname])
+
+    const onMouseEnter = (item: any) => {
+        if (item?.children) {
+            setRobotShow(true)
+        }
+    }
+
+    const onMouseLeave = (item: any) => {
+        if (item?.children) {
+            setRobotShow(false)
+        }
+    }
+
+    const onClick = (item: any) => {
+        if (item?.children) {
+            setRobotShow(!robotShow)
+        }
+    }
 
     return (
         <div className="w-screen h-screen overflow-auto overflow-x-hidden bg-white">
@@ -70,21 +92,26 @@ const Layout = () => {
                         return (
                             <span
                                 key={index}
-                                className="cursor-pointer group hover:text-[var(--bluelight500)] select-none flex items-center px-5 h-full"
+                                onMouseEnter={() => onMouseEnter(item)}
+                                onMouseLeave={() => onMouseLeave(item)}
+                                onClick={() => onClick(item)}
+                                className="cursor-pointer hover:text-[var(--bluelight500)] select-none flex items-center px-5 h-full"
                             >
-                                <NavLink
-                                    to={item.path}
-                                    className={({ isActive, isPending }) =>
-                                        (isPending ? "pending " : isActive ? "" : "") +
-                                        "flex justify-center items-center font-medium"
-                                    }
-                                >
-                                    {item.name}
-                                </NavLink>
+                                {
+                                    item?.path ? <NavLink
+                                        to={item.path}
+                                        className={({ isActive, isPending }) =>
+                                            (isPending ? "pending " : isActive ? "" : "") +
+                                            "flex justify-center items-center font-medium w-full h-full"
+                                        }
+                                    >
+                                        {item.name}
+                                    </NavLink> : <span className="flex justify-center items-center font-medium">{item.name}</span>
+                                }
                                 {item?.icon}
                                 {item?.children ? (
-                                    <div className=" hidden hover:block group-hover:block z-50 absolute top-[72px] right-0 w-screen h-[calc(80vh_-_72px)] bg-white shadow-md overflow-y-auto">
-                                        121212
+                                    <div className={`${robotShow ? 'block' : 'hidden'} group-hover:block z-50 absolute top-[72px] right-0 w-full h-[calc(80vh_-_72px)] bg-white text-black shadow-md overflow-y-auto`}>
+                                        <Robots />
                                     </div>
                                 ) : null}
                             </span>
@@ -92,13 +119,16 @@ const Layout = () => {
                     })}
                 </div>
                 <div
-                    className={`absolute bg-white top-[72px] shadow-md right-0 w-full transition-all overflow-auto duration-1000 ease-in-out ${menuShow ? "h-[calc(100vh_-_72px)] " : "h-0"
+                    className={`absolute z-50 bg-white top-[72px] shadow-md right-0 w-full transition-all overflow-auto duration-1000 ease-in-out ${menuShow ? "h-[calc(100vh_-_72px)] " : "h-0"
                         }`}
                 >
                     {list?.map((item: any, index) => {
                         return (
                             <span
                                 key={index}
+                                onMouseEnter={() => onMouseEnter(item)}
+                                onMouseLeave={() => onMouseLeave(item)}
+                                onClick={() => onClick(item)}
                                 className="cursor-pointer group hover:text-[var(--bluelight500)] select-none"
                             >
                                 <NavLink
@@ -113,22 +143,22 @@ const Layout = () => {
                                 </NavLink>
 
                                 {item?.children ? (
-                                    <div className="h-0 w-screen transition-all duration-500 group-hover:h-[calc(80vh_-_72px)] bg-white overflow-y-auto">
-                                        121212
+                                    <div className={`${robotShow ? 'h-[calc(80vh_-_72px)]' : ''} text-black  h-0 w-screen transition-all duration-500 bg-white overflow-y-auto`}>
+                                        <Robots />
                                     </div>
                                 ) : null}
                             </span>
                         );
                     })}
-                    <div className="w-[130px] mx-auto">
+                    <div className="w-[40%] mx-auto text-center">
                         <span className="sm:block hidden py-[.75rem] px-[1.5rem] cursor-pointer font-medium select-none bg-[var(--bluelight500)] text-white rounded-[36px] hover:bg-white hover:text-[var(--bluelight500)] hover:border-[2px] hover:border-[var(--bluelight500)]">
-                            Contact us
+                            <NavLink to="/contact">Contact us</NavLink>
                         </span>
                     </div>
                 </div>
                 <div className="flex items-center space-x-8">
                     <span className="sm:hidden py-[.75rem] px-[1.5rem] cursor-pointer font-medium select-none bg-[var(--bluelight500)] text-white rounded-[36px] hover:bg-white hover:text-[var(--bluelight500)] hover:border-[2px] hover:border-[var(--bluelight500)]">
-                        Contact us
+                        <NavLink to="/contact">Contact us</NavLink>
                     </span>
                     <div
                         className={`md:block hidden menu-icon-wrapper ${menuShow ? "close" : "open"
@@ -142,6 +172,7 @@ const Layout = () => {
                 </div>
             </div>
             <div>{currentOutlet}</div>
+            <Footer />
         </div>
     );
 };

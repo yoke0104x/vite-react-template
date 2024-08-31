@@ -30,8 +30,8 @@ const CarouselCom = () => {
         if (activeIndex === index) return
         swiperRef.current?.goTo(index)
     }
-    return <div className='pt-8'>
-        <div className="rounded-[40px] h-[90vh] xs:h-[65vh] relative overflow-hidden max-h-[60rem]">
+    return <div className='px-[5%] pt-8'>
+        <div className="sm:h-[65vh] rounded-[40px] h-[90vh] relative overflow-hidden max-h-[60rem]">
             <Carousel
                 className=' custom_carousel h-full w-full'
                 autoplay
@@ -95,7 +95,7 @@ const CarouselCom = () => {
                     </div>
                 </div>
             </Carousel>
-            <div className='absolute bottom-8 left-2/4 -translate-x-2/4 flex w-[60vw] sm:w-auto cursor-pointer px-[5vw]'>
+            <div className='absolute bottom-8 left-2/4 -translate-x-2/4 flex w-[60rem] sm:w-auto cursor-pointer px-[5vw]'>
                 {
                     list?.map((el, index) => {
                         return <div key={index} className='flex-1 py-[1em] px-[2em] relative mx-2 text-center' onClick={() => {
