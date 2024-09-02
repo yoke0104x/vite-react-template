@@ -52,10 +52,7 @@ const CarouselCom = () => {
                 <div className='h-full'>
 
                     <div className='h-full'>
-                        <video autoPlay={true} loop={true} muted={true} className='w-full h-full object-cover' >
-                            <source src="https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107%2F66c3ce42f14f5bb9ad3db713_scorpion-release-video-transcode.mp4" type="video/mp4" />
-                            <source src="https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107%2F66c3ce42f14f5bb9ad3db713_scorpion-release-video-transcode.webm" />
-                        </video>
+                        <img className='h-full w-full object-cover' src="https://picsum.photos/1715/840?random=7991" alt="" />
                     </div>
                 </div>
                 <div className='h-full'>
@@ -71,10 +68,7 @@ const CarouselCom = () => {
                         </span>
                     </div>
                     <div className='h-full bg-black/50'>
-                        <video autoPlay={true} loop={true} muted={true} className='w-full h-full object-cover' >
-                            <source src="https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107%2F66bf8255208d91bbf89b4753_titan-home-video-transcode.mp4" data-wf-ignore="true" />
-                            <source src="https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107%2F66bf8255208d91bbf89b4753_titan-home-video-transcode.webm" data-wf-ignore="true" />
-                        </video>
+                        <img className='h-full w-full object-cover' src="https://picsum.photos/1715/840?random=7992" alt="" />
                     </div>
                 </div>
                 <div className='h-full'>

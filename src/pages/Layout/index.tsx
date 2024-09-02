@@ -95,7 +95,7 @@ const Layout = () => {
                                 onMouseEnter={() => onMouseEnter(item)}
                                 onMouseLeave={() => onMouseLeave(item)}
                                 onClick={() => onClick(item)}
-                                className="cursor-pointer hover:text-[var(--bluelight500)] select-none flex items-center px-5 h-full"
+                                className="cursor-pointer hover:text-[var(--bluelight500)] select-none flex items-center px-5 h-full relative"
                             >
                                 {
                                     item?.path ? <NavLink
@@ -110,7 +110,7 @@ const Layout = () => {
                                 }
                                 {item?.icon}
                                 {item?.children ? (
-                                    <div className={`${robotShow ? 'block' : 'hidden'} group-hover:block z-50 absolute top-[72px] right-0 w-full h-[calc(80vh_-_72px)] bg-white text-black shadow-md overflow-y-auto`}>
+                                    <div className={`${robotShow ? 'block' : 'hidden'} group-hover:block z-50 absolute top-[72px] left-0 h-auto w-max bg-white text-black shadow-md overflow-y-auto`}>
                                         <Robots />
                                     </div>
                                 ) : null}
@@ -143,7 +143,7 @@ const Layout = () => {
                                 </NavLink>
 
                                 {item?.children ? (
-                                    <div className={`${robotShow ? 'h-[calc(80vh_-_72px)]' : ''} text-black  h-0 w-screen transition-all duration-500 bg-white overflow-y-auto`}>
+                                    <div className={`${robotShow ? 'h-auto' : ''} text-black  h-0 w-screen transition-all duration-500 bg-white overflow-y-auto`}>
                                         <Robots />
                                     </div>
                                 ) : null}

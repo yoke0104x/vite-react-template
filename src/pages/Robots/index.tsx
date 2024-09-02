@@ -7,12 +7,12 @@ import { list } from "./costant"
  * @Date: 2024-08-31 11:09:49
  */
 const Robots = () => {
-    return <div className="px-[5%] py-[2%] md:grid-cols-1 grid grid-cols-4 gap-4">
+    return <div className="md:w-max md:mx-auto">
         {
             list?.map((el, index) => {
-                return <div key={index} className="flex flex-col">
-                    <p className="text-[1.2rem] md:ml-0 ml-6 font-semibold">{el.title}</p>
-                    {
+                return <div key={index} className="flex px-2 h-8 md:w-full items-center justify-center hover:text-[var(--bluelight500)]">
+                    <p className="text-base font-semibold">{el.title}</p>
+                    {/* {
                         el.children?.map((item, index) => {
                             return <div key={index} className=" mt-6 md:grid-cols-1 grid grid-cols-2 gap-2">
                                 <div className="p-6">
@@ -28,7 +28,7 @@ const Robots = () => {
                                 </div>
                             </div>
                         })
-                    }
+                    } */}
                 </div>
             })
         }
