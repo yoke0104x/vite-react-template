@@ -7,6 +7,7 @@
 export const list = [
     {
         title: 'Worker Robots',
+        path: '/robot/worker',
         children: [
             {
                 url: 'https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107/63e145285875ef2d8c5d7294_adam-facing-front-nav.webp',
@@ -22,6 +23,7 @@ export const list = [
     },
     {
         title: 'Delivery Robots',
+        path: '/robot/delivery',
         children: [
             {
                 url: 'https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107/66d1036a1638b807b524febd_matradee-plus-nav.avif',
@@ -42,6 +44,7 @@ export const list = [
     },
     {
         title: 'Cleaning Robots',
+        path: '/robot/cleaning',
         children: [
             {
                 url: 'https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107/66d1036a1638b807b524febd_matradee-plus-nav.avif',
@@ -55,14 +58,4 @@ export const list = [
             },
         ]
     },
-    {
-        title: 'Multipurpose Robots',
-        children: [
-            {
-                url: 'https://cdn.prod.website-files.com/631b9c9bc2eb7cbf0daa9107/63e145285875ef2d8c5d7294_adam-facing-front-nav.webp',
-                name: 'Skylark',
-                desc: 'Multipurpose robot that switch outmodules to perform multiple functionsincluding delivery and cleaning.',
-            },
-        ]
-    }
 ]

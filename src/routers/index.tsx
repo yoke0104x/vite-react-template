@@ -18,6 +18,8 @@ const Blog = React.lazy(() => import('@/pages/Blog'));
 
 const Contact = React.lazy(() => import('@/pages/Contact'));
 
+const RobotViews = React.lazy(() => import('@/pages/RobotViews'));
+
 function AppRoutes() {
     const routes = useRoutes([
         {
@@ -43,6 +45,10 @@ function AppRoutes() {
                 {
                     path: '/contact',
                     element: <Contact />
+                },
+                {
+                    path: '/robot/:code',
+                    element: <RobotViews />
                 }
             ]
         },

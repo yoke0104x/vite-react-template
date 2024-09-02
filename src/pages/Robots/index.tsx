@@ -1,5 +1,6 @@
 import Icon from "@/components/Icon"
 import { list } from "./costant"
+import { NavLink } from "react-router-dom"
 
 /*
  * @description: Robots
@@ -11,7 +12,9 @@ const Robots = () => {
         {
             list?.map((el, index) => {
                 return <div key={index} className="flex px-2 h-8 md:w-full items-center justify-center hover:text-[var(--bluelight500)]">
-                    <p className="text-base font-semibold">{el.title}</p>
+                    <p className="text-base font-semibold">
+                        <NavLink to={el.path}>{el.title}</NavLink>
+                    </p>
                     {/* {
                         el.children?.map((item, index) => {
                             return <div key={index} className=" mt-6 md:grid-cols-1 grid grid-cols-2 gap-2">
